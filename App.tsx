@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import { Home } from './src/componets/Home';
+import { Home } from './src/Screens/Home';
 
 export default function App() {
   return (
