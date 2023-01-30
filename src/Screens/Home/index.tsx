@@ -69,9 +69,10 @@ export function Home() {
             <Title
               title={videoInfos?.title}
             />
+            <ViewsandHour />
           </TouchableOpacity>
 
-          <ViewsandHour />
+
 
           <Interactions />
         </View>
