@@ -29,14 +29,15 @@ export const styles = StyleSheet.create({
     height: 32,
   },
   comment: {
-    paddingBottom: 8,
+    paddingBottom: 12,
     paddingHorizontal: 12,
     flexDirection: 'row',
   },
   text: {
-    paddingTop: 8,
-    paddingLeft: 12,
+    paddingTop: 6,
+    paddingLeft: 10,
     color: '#fff',
-    fontSize: 12
+    fontSize: 11,
+    fontWeight: '400'
   },
 });

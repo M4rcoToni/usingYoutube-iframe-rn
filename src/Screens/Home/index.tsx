@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
-import { View, ActivityIndicator, useWindowDimensions, Alert, } from 'react-native';
+import { View, ActivityIndicator, useWindowDimensions, Alert, ScrollView, SafeAreaView, TouchableOpacity, } from 'react-native';
 import YoutubeIframe, { PLAYER_STATES, getYoutubeMeta } from "react-native-youtube-iframe";
-import { Divider } from "@react-native-material/core";
 
 import { SCREEN_SPACE, styles, VIDEO_HEIGHT } from '../Home/styles';
 import * as ScreenHorientation from 'expo-screen-orientation'
@@ -10,6 +9,7 @@ import { ViewsandHour } from '../../componets/ViewsandHour';
 import { Interactions } from '../../componets/Interactions';
 import { Header } from '../../componets/Header';
 import { Comments } from '../../componets/Comments';
+import { NextVideo } from '../../componets/NextVideo';
 
 interface VideoProps {
   title: string
@@ -39,42 +39,51 @@ export function Home() {
   const [videoInfos, setVideoInfos] = useState<VideoProps>();
 
   getYoutubeMeta('0GOUF8vNqzE').then(meta => {
-    // console.log(meta.author_name);
+    // console.log(meta.thumbnail_url);
 
     setVideoInfos({
       title: meta.title,
-      autor: meta.author_name
+      autor: meta.author_name,
     })
   });
 
   return (
-    <View style={styles.container}>
-      <View style={styles.player}>
-        <YoutubeIframe
-          height={VIDEO_HEIGHT}
-          width={videoReady ? VIDEO_WIDTH : 0}
-          videoId='0GOUF8vNqzE'
-          onReady={() => setVideoReady(true)}
-          onFullScreenChange={onFullScreenChange}
-          onChangeState={onChangeState}
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+
+        <View style={styles.player}>
+          <YoutubeIframe
+            height={VIDEO_HEIGHT}
+            width={videoReady ? VIDEO_WIDTH : 0}
+            videoId='0GOUF8vNqzE'
+            onReady={() => setVideoReady(true)}
+            onFullScreenChange={onFullScreenChange}
+            onChangeState={onChangeState}
+          />
+          {!videoReady && <ActivityIndicator color={'red'} />}
+
+        </View>
+        {/* fazer um componet */}
+        <View style={styles.title}>
+          <TouchableOpacity>
+            <Title
+              title={videoInfos?.title}
+            />
+          </TouchableOpacity>
+
+          <ViewsandHour />
+
+          <Interactions />
+        </View>
+
+        <Header
+          autor={videoInfos?.autor}
         />
-        {!videoReady && <ActivityIndicator color={'red'} />}
 
-      </View>
-      <View style={styles.title}>
-        <Title
-          title={videoInfos?.title}
-        />
-        <ViewsandHour />
+        <Comments />
+        <NextVideo />
+      </ScrollView>
 
-        <Interactions />
-      </View>
-
-      <Header
-        autor={videoInfos?.autor}
-      />
-
-      <Comments />
-    </View>
+    </SafeAreaView>
   );
 }

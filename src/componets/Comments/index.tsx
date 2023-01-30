@@ -17,7 +17,9 @@ export function Comments() {
           9
         </Text>
 
-        <TouchableOpacity  >
+        <TouchableOpacity
+          activeOpacity={0.4}
+        >
 
           <MaterialIcons style={styles.expandown}
             name='expand-more' size={18} color='#8f8f8f' />
@@ -34,11 +36,12 @@ export function Comments() {
           source={require('../../../assets/channel.jpg')}
         />
         <Text style={styles.text}>
-          A rocket sabe muito escolher
+          A rocket sabe muito escolher os educadores
         </Text>
       </View>
 
       <Divider
+        style={{ height: 2 }}
         color='#5e5e5e65'
       />
     </>
