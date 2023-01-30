@@ -33,7 +33,7 @@ export function Comments() {
       <View style={styles.comment}>
         <Image
           style={styles.image}
-          source={require('../../../assets/channel.jpg')}
+          source={require('../../../assets/comment.jpg')}
         />
         <Text style={styles.text}>
           A rocket sabe muito escolher os educadores

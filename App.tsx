@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import { Home } from './src/Screens/Home';
 
 export default function App() {
@@ -10,7 +10,6 @@ export default function App() {
         translucent
       />
       <Home />
-
     </>
   );
 }

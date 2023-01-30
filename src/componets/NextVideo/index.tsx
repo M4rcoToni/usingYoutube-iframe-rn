@@ -3,7 +3,6 @@ import { View, TouchableOpacity, Image, Text, ActivityIndicator, useWindowDimens
 
 import { styles } from './styles';
 
-import { Divider } from '@react-native-material/core';
 import { getYoutubeMeta } from "react-native-youtube-iframe";
 import { useState } from 'react';
 

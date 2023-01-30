@@ -7,11 +7,12 @@ export const styles = StyleSheet.create({
   },
   comments: {
     color: '#fff',
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '500',
   },
   number: {
     paddingLeft: 8,
+    fontSize: 12,
     color: '#8f8f8f'
   },
   expandup: {
